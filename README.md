@@ -34,3 +34,19 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Git & Deployment
+
+To push changes using the specific SSH key:
+
+### One-time setup:
+```bash
+git config core.sshCommand "ssh -i ~/.ssh/iAmShakil -F /dev/null"
+```
+
+### Push sequence:
+```bash
+git add .
+git commit -m "Your message"
+git push
+```
