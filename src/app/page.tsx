@@ -1,65 +1,201 @@
-import Image from "next/image";
+import Link from "next/link";
+import { SystemVisualization } from "./components/SystemVisualization";
 
 export default function Home() {
+  const experiences = [
+    {
+      company: "Upwork Inc. — Growth Engineering Team",
+      role: "Senior Software Engineer",
+      period: "2021 — Present",
+      description: "Member of Upwork’s Growth Engineering team, owning core Login & Registration funnels and improving onboarding conversion for millions of visitors.",
+      impact: [
+        "Built and optimized high-traffic SEO and paid acquisition landing pages, making it easier for clients to find & hire freelancers — and for freelancers to get discovered — contributing to a 30% increase in new user registrations.",
+        "Led performance engineering initiatives (code-splitting, SSR improvements, caching strategies), significantly improving Core Web Vitals (LCP/CLS/TTI) and organic search visibility.",
+        "Modernized legacy frontend systems into scalable, theme-driven architectures, adopted across multiple teams.",
+        "Acted as DRI for high-visibility releases and strengthened experimentation, feature-flag, and observability infrastructure across growth surfaces impacting 8-figure ARR traffic."
+      ]
+    },
+    {
+      company: "Polyfins Technology",
+      role: "Senior Software Developer",
+      period: "2018 — 2021",
+      description: "Architected and launched a national-scale dermatology search engine, leading a team of 5 engineers.",
+      impact: [
+        "Orchestrated nationwide integration with Robi Axiata, enabling frictionless subscription services for 50M+ users.",
+        "Developed full-stack patient management systems, emphasizing data visualization and usability.",
+        "Built and scaled React Native mobile apps to 80k+ downloads."
+      ]
+    },
+    {
+      company: "Sidera Blockchain",
+      role: "Blockchain Developer",
+      period: "2018",
+      description: "Developed the core cryptocurrency itself using Solidity and architected critical components of the eQUOS platform.",
+      impact: [
+        "Developed and deployed the core cryptocurrency using Solidity, ensuring secure token logic and distribution.",
+        "Launched the eQUOS cryptocurrency portal, processing KYC and platform infrastructure for 50k+ investors.",
+        "Implemented secure, high-performance web services for blockchain-integrated financial applications."
+      ]
+    }
+  ];
+
+  const principles = [
+    {
+      title: "Anti-Fragility",
+      description: "Engineering systems that grow stronger under pressure."
+    },
+    {
+      title: "Product Synthesis",
+      description: "Where aesthetics, performance, and business outcomes converge."
+    }
+  ];
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="min-h-screen bg-background text-foreground bg-grid selection:bg-accent/10 relative overflow-x-hidden">
+      <SystemVisualization />
+      
+      <main className="max-width-container high-padding relative z-10">
+        {/* Floating Artifact 1: Neural Schematic (Background) */}
+        <div className="fixed top-[20%] right-[-5%] w-96 h-96 opacity-[0.03] pointer-events-none artifact-pulse hidden lg:block">
+          <svg viewBox="0 0 200 200" className="w-full h-full text-accent fill-none stroke-current stroke-[0.5]">
+            <circle cx="100" cy="100" r="80" stroke-dasharray="4 8" />
+            <path d="M100 20 V180 M20 100 H180" stroke-dasharray="2 4" />
+            <circle cx="100" cy="100" r="40" />
+            <rect x="60" y="60" width="80" height="80" rx="40" stroke-dasharray="1 3" />
+          </svg>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+
+        {/* Hero Section */}
+        <section className="min-h-[90vh] flex flex-col justify-center max-w-6xl mx-auto">
+          <header className="mb-24 relative group">
+            <span className="metadata mb-6 block stagger-1 animate-reveal">Senior Software Engineer</span>
+            <div className="animate-scan">
+              <h1 className="text-7xl md:text-9xl mb-8 tracking-tighter font-serif leading-none stagger-2 animate-reveal hover:tracking-[-0.03em] transition-all duration-1000">
+                Shakil <br /> Ahmed
+              </h1>
+            </div>
+            <div className="flex items-center gap-6 stagger-3 animate-reveal">
+              <p className="text-xl md:text-2xl text-accent font-mono uppercase tracking-[0.2em]">
+                Engineering × Product × Systems Thinking
+              </p>
+            </div>
+          </header>
+
+          <div className="stagger-4 animate-reveal">
+            <p className="text-3xl md:text-6xl leading-[1.05] font-serif text-foreground/90 mb-12 tracking-tight max-w-4xl">
+              I build software that thrives on <span className="text-accent italic">volatility</span> — architecting platforms that don&apos;t just withstand stress, but improve because of it.
+            </p>
+            <div className="flex flex-col md:flex-row gap-12 items-start opacity-70">
+              <p className="text-lg md:text-2xl font-mono leading-relaxed italic border-l-2 border-accent/20 pl-8 py-2">
+                Senior Software Engineer at Upwork Inc. (NASDAQ: UPWK). <br />
+                Launched a cryptocurrency (eQUOS) in 2018.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Professional Narrative (Bio Layout) */}
+        <section className="py-48 max-w-6xl mx-auto relative">
+          <div className="flex items-center justify-between border-b border-border/50 pb-12 mb-32 group">
+            <div className="flex items-center gap-6 animate-scan">
+              <span className="text-accent text-sm font-mono opacity-40">[01]</span>
+              <h2 className="metadata text-xl tracking-[0.4em]">Professional Bio</h2>
+            </div>
+          </div>
+          
+          <div className="space-y-48">
+            {experiences.map((exp, idx) => (
+              <div key={idx} className="relative group animate-reveal" style={{ animationDelay: `${idx * 0.15 + 0.5}s` }}>
+                {/* Visual Artifact: Data Stream Line */}
+                <div className="absolute -left-12 top-0 bottom-0 w-[1px] bg-gradient-to-b from-accent/40 via-accent/5 to-transparent hidden md:block" />
+                
+                <div className="mb-12">
+                  <span className="text-sm font-mono text-accent/50 block mb-4 uppercase tracking-widest">{exp.period}</span>
+                  <h3 className="text-5xl md:text-8xl font-serif tracking-tight mb-4 group-hover:text-accent transition-colors duration-700">
+                    {exp.company}
+                  </h3>
+                  <p className="text-xl md:text-3xl font-mono text-foreground/60 italic">{exp.role}</p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-16">
+                  <div className="md:col-span-5">
+                    <p className="text-xl md:text-2xl text-foreground/80 leading-relaxed font-serif italic border-l border-accent/10 pl-8">
+                      {exp.description}
+                    </p>
+                  </div>
+                  <div className="md:col-span-7">
+                    <ul className="space-y-8">
+                      {exp.impact.map((point, pIdx) => (
+                        <li key={pIdx} className="group/item flex gap-6 items-start">
+                          <span className="w-4 h-[1px] bg-accent/30 mt-3 group-hover/item:w-8 group-hover/item:bg-accent transition-all duration-500" />
+                          <p className="text-lg text-foreground/60 leading-relaxed group-hover/item:text-foreground/90 transition-colors">
+                            {point}
+                          </p>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Core Principles */}
+        <section className="py-48 max-w-6xl mx-auto relative overflow-hidden">
+          {/* Background Artifact: Geometric Grid */}
+          <div className="absolute inset-0 opacity-[0.02] pointer-events-none -z-10 animate-pulse">
+            <svg viewBox="0 0 100 100" className="w-full h-full stroke-accent stroke-[0.1]">
+              <pattern id="principle-grid" width="10" height="10" patternUnits="userSpaceOnUse">
+                <circle cx="5" cy="5" r="0.5" />
+                <path d="M 10 0 L 0 0 0 10" fill="none" />
+              </pattern>
+              <rect width="100%" height="100%" fill="url(#principle-grid)" />
+            </svg>
+          </div>
+
+          <div className="flex items-center gap-6 mb-32 animate-reveal">
+            <span className="text-accent text-sm font-mono opacity-40">[02]</span>
+            <h2 className="metadata text-xl tracking-[0.4em]">Governance & Logic</h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-border/20 border border-border/20 rounded-sm overflow-hidden animate-reveal">
+            {principles.map((principle, idx) => (
+              <div key={idx} className="bg-background/40 backdrop-blur-md p-16 space-y-8 group hover:bg-accent/[0.03] transition-all duration-1000 relative">
+                {/* Interactive Scan Line for Principles */}
+                <div className="absolute top-0 left-0 w-1px h-full bg-accent/20 scale-y-0 group-hover:scale-y-100 transition-transform duration-700 origin-top" />
+                
+                <h3 className="text-4xl font-serif tracking-tight group-hover:translate-x-2 transition-transform duration-700">{principle.title}</h3>
+                <p className="text-lg text-foreground/60 leading-relaxed font-mono italic">
+                  &quot;{principle.description}&quot;
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Final Footer Artifact */}
+        <footer className="py-32 mt-48 border-t border-border/20 text-center relative group overflow-hidden">
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[200%] h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-1000" />
+          
+          <div className="max-w-4xl mx-auto flex flex-col items-center gap-12">
+            <div className="flex flex-wrap justify-center gap-12 text-sm uppercase tracking-[0.3em] font-mono">
+              <Link href="mailto:contact@shakil.me" className="hover:text-accent transition-colors">Email</Link>
+              <Link href="https://linkedin.com/in/iamshakil" className="hover:text-accent transition-colors">LinkedIn</Link>
+              <Link href="https://github.com/iamshakil" className="hover:text-accent transition-colors">GitHub</Link>
+            </div>
+            
+            <div className="space-y-4">
+              <p className="metadata opacity-40 text-[10px] tracking-[0.4em] uppercase">Built for Volatility // 2026</p>
+              <p className="metadata opacity-20 text-[8px] tracking-[0.2em]">SHAKIL AHMED — ARCH_BIO_V1</p>
+            </div>
+          </div>
+        </footer>
       </main>
     </div>
   );
 }
+
+
+
+
