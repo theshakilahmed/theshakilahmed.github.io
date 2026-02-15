@@ -24,8 +24,8 @@ export function ScrollSection({
   const ref = useRef(null);
   const isInView = useInView(ref, { 
     once: true, 
-    margin: "-100px",
-    amount: 0.3
+    margin: "-50px",
+    amount: 0.1
   });
 
   return (
@@ -65,8 +65,8 @@ export function StaggerSection({
   const ref = useRef(null);
   const isInView = useInView(ref, {
     once: true,
-    margin: "-100px",
-    amount: 0.2,
+    margin: "-50px",
+    amount: 0.1,
   });
 
   return (
