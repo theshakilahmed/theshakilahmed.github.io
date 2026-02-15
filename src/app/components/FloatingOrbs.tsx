@@ -40,7 +40,7 @@ export function FloatingOrbs() {
   ];
 
   return (
-    <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
+    <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none hidden md:block">
       {orbs.map((orb) => (
         <motion.div
           key={orb.id}

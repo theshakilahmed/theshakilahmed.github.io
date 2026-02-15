@@ -39,7 +39,10 @@ export function HeroAnimation({
   }, [children]);
 
   useEffect(() => {
-    if (!enableMagnetic || !ref.current) return;
+    // Check if device supports hover (not touch)
+    const isTouchDevice = window.matchMedia("(hover: none)").matches;
+    
+    if (!enableMagnetic || !ref.current || isTouchDevice) return;
 
     const handleMouseMove = (e: MouseEvent) => {
       if (!ref.current) return;
