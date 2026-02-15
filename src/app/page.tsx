@@ -1,15 +1,19 @@
 import Link from "next/link";
 import { SystemVisualization } from "./components/SystemVisualization";
+import { HeroAnimation, ParallaxText } from "./components/HeroAnimation";
+import { ScrollSection, StaggerSection, FadeInOnScroll } from "./components/ScrollSection";
+import { MagneticButton } from "./components/MagneticButton";
+import { FloatingOrbs } from "./components/FloatingOrbs";
 
 export default function Home() {
   const experiences = [
     {
-      company: "Upwork Inc. — Growth Engineering Team",
+      company: "Upwork Inc., Growth Engineering Team",
       role: "Senior Software Engineer",
-      period: "2021 — Present",
-      description: "Member of Upwork’s Growth Engineering team, owning core Login & Registration funnels and improving onboarding conversion for millions of visitors.",
+      period: "2021 – Present",
+      description: "Member of Upwork's Growth Engineering team, owning core Login & Registration funnels and improving onboarding conversion for millions of visitors.",
       impact: [
-        "Built and optimized high-traffic SEO and paid acquisition landing pages, making it easier for clients to find & hire freelancers — and for freelancers to get discovered — contributing to a 30% increase in new user registrations.",
+        "Built and optimized high-traffic SEO and paid acquisition landing pages, making it easier for clients to find & hire freelancers (and for freelancers to get discovered), contributing to a 30% increase in new user registrations.",
         "Led performance engineering initiatives (code-splitting, SSR improvements, caching strategies), significantly improving Core Web Vitals (LCP/CLS/TTI) and organic search visibility.",
         "Modernized legacy frontend systems into scalable, theme-driven architectures, adopted across multiple teams.",
         "Acted as DRI for high-visibility releases and strengthened experimentation, feature-flag, and observability infrastructure across growth surfaces impacting 8-figure ARR traffic."
@@ -18,7 +22,7 @@ export default function Home() {
     {
       company: "Polyfins Technology",
       role: "Senior Software Developer",
-      period: "2018 — 2021",
+      period: "2018 – 2021",
       description: "Architected and launched a national-scale dermatology search engine, leading a team of 5 engineers.",
       impact: [
         "Orchestrated nationwide integration with Robi Axiata, enabling frictionless subscription services for 50M+ users.",
@@ -52,60 +56,74 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-background text-foreground bg-grid selection:bg-accent/10 relative overflow-x-hidden">
+      <FloatingOrbs />
       <SystemVisualization />
       
       <main className="max-width-container high-padding relative z-10">
         {/* Floating Artifact 1: Neural Schematic (Background) */}
         <div className="fixed top-[20%] right-[-5%] w-96 h-96 opacity-[0.03] pointer-events-none artifact-pulse hidden lg:block">
           <svg viewBox="0 0 200 200" className="w-full h-full text-accent fill-none stroke-current stroke-[0.5]">
-            <circle cx="100" cy="100" r="80" stroke-dasharray="4 8" />
-            <path d="M100 20 V180 M20 100 H180" stroke-dasharray="2 4" />
+            <circle cx="100" cy="100" r="80" strokeDasharray="4 8" />
+            <path d="M100 20 V180 M20 100 H180" strokeDasharray="2 4" />
             <circle cx="100" cy="100" r="40" />
-            <rect x="60" y="60" width="80" height="80" rx="40" stroke-dasharray="1 3" />
+            <rect x="60" y="60" width="80" height="80" rx="40" strokeDasharray="1 3" />
           </svg>
         </div>
 
         {/* Hero Section */}
         <section className="min-h-[90vh] flex flex-col justify-center max-w-6xl mx-auto">
-          <header className="mb-24 relative group">
-            <span className="metadata mb-6 block stagger-1 animate-reveal">Senior Software Engineer</span>
-            <div className="animate-scan">
-              <h1 className="text-7xl md:text-9xl mb-8 tracking-tighter font-serif leading-none stagger-2 animate-reveal hover:tracking-[-0.03em] transition-all duration-1000">
-                Shakil <br /> Ahmed
-              </h1>
-            </div>
-            <div className="flex items-center gap-6 stagger-3 animate-reveal">
-              <p className="text-xl md:text-2xl text-accent font-mono uppercase tracking-[0.2em]">
-                Engineering × Product × Systems Thinking
-              </p>
-            </div>
-          </header>
+          <FadeInOnScroll>
+            <header className="mb-24 relative group">
+              <span className="metadata mb-6 block">Senior Software Engineer</span>
+              <div>
+                <HeroAnimation 
+                  className="text-7xl md:text-9xl mb-8 tracking-tighter font-serif leading-none hover:tracking-[-0.03em] transition-all duration-1000"
+                  enableMagnetic={true}
+                >
+                  Shakil Ahmed
+                </HeroAnimation>
+              </div>
+              <div className="flex items-center gap-6">
+                <p className="text-xl md:text-2xl text-accent font-mono uppercase tracking-[0.2em]">
+                  Engineering × Product × Systems Thinking
+                </p>
+              </div>
+            </header>
+          </FadeInOnScroll>
 
-          <div className="stagger-4 animate-reveal">
-            <p className="text-3xl md:text-6xl leading-[1.05] font-serif text-foreground/90 mb-12 tracking-tight max-w-4xl">
-              I build software that thrives on <span className="text-accent italic">volatility</span> — architecting platforms that don&apos;t just withstand stress, but improve because of it.
-            </p>
+          <ScrollSection delay={0.3}>
+            <ParallaxText speed={0.3}>
+              <p className="text-3xl md:text-6xl leading-[1.05] font-serif text-foreground/90 mb-12 tracking-tight max-w-4xl">
+                I build software that thrives on <span className="text-accent italic">volatility</span>. I architect platforms that don&apos;t just withstand stress, but improve because of it.
+              </p>
+            </ParallaxText>
             <div className="flex flex-col md:flex-row gap-12 items-start opacity-70">
               <p className="text-lg md:text-2xl font-mono leading-relaxed italic border-l-2 border-accent/20 pl-8 py-2">
                 Senior Software Engineer at Upwork Inc. (NASDAQ: UPWK). <br />
                 Launched a cryptocurrency (eQUOS) in 2018.
               </p>
             </div>
-          </div>
+          </ScrollSection>
         </section>
 
         {/* Professional Narrative (Bio Layout) */}
         <section className="py-48 max-w-6xl mx-auto relative">
-          <div className="flex items-center justify-between border-b border-border/50 pb-12 mb-32 group">
-            <div className="flex items-center gap-6 animate-scan">
-              <span className="text-accent text-sm font-mono opacity-40">[01]</span>
-              <h2 className="metadata text-xl tracking-[0.4em]">Professional Bio</h2>
+          <ScrollSection>
+            <div className="flex items-center justify-between border-b border-border/50 pb-12 mb-32 group">
+              <div className="flex items-center gap-6">
+                <span className="text-accent text-sm font-mono opacity-40">[01]</span>
+                <h2 className="metadata text-xl tracking-[0.4em]">Professional Bio</h2>
+              </div>
             </div>
-          </div>
+          </ScrollSection>
           
-          <div className="space-y-48">
+          <StaggerSection staggerDelay={0.2}>
             {experiences.map((exp, idx) => (
-              <div key={idx} className="relative group animate-reveal" style={{ animationDelay: `${idx * 0.15 + 0.5}s` }}>
+              <ScrollSection 
+                key={idx} 
+                className="relative group mb-48"
+                delay={idx * 0.1}
+              >
                 {/* Visual Artifact: Data Stream Line */}
                 <div className="absolute -left-12 top-0 bottom-0 w-[1px] bg-gradient-to-b from-accent/40 via-accent/5 to-transparent hidden md:block" />
                 
@@ -136,9 +154,9 @@ export default function Home() {
                     </ul>
                   </div>
                 </div>
-              </div>
+              </ScrollSection>
             ))}
-          </div>
+          </StaggerSection>
         </section>
 
         {/* Core Principles */}
@@ -154,24 +172,28 @@ export default function Home() {
             </svg>
           </div>
 
-          <div className="flex items-center gap-6 mb-32 animate-reveal">
-            <span className="text-accent text-sm font-mono opacity-40">[02]</span>
-            <h2 className="metadata text-xl tracking-[0.4em]">Governance & Logic</h2>
-          </div>
+          <ScrollSection>
+            <div className="flex items-center gap-6 mb-32">
+              <span className="text-accent text-sm font-mono opacity-40">[02]</span>
+              <h2 className="metadata text-xl tracking-[0.4em]">Governance & Logic</h2>
+            </div>
+          </ScrollSection>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-border/20 border border-border/20 rounded-sm overflow-hidden animate-reveal">
-            {principles.map((principle, idx) => (
-              <div key={idx} className="bg-background/40 backdrop-blur-md p-16 space-y-8 group hover:bg-accent/[0.03] transition-all duration-1000 relative">
-                {/* Interactive Scan Line for Principles */}
-                <div className="absolute top-0 left-0 w-1px h-full bg-accent/20 scale-y-0 group-hover:scale-y-100 transition-transform duration-700 origin-top" />
-                
-                <h3 className="text-4xl font-serif tracking-tight group-hover:translate-x-2 transition-transform duration-700">{principle.title}</h3>
-                <p className="text-lg text-foreground/60 leading-relaxed font-mono italic">
-                  &quot;{principle.description}&quot;
-                </p>
-              </div>
-            ))}
-          </div>
+          <ScrollSection delay={0.2}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-border/20 border border-border/20 rounded-sm overflow-hidden">
+              {principles.map((principle, idx) => (
+                <div key={idx} className="bg-background/40 backdrop-blur-md p-16 space-y-8 group hover:bg-accent/[0.03] transition-all duration-1000 relative">
+                  {/* Interactive Scan Line for Principles */}
+                  <div className="absolute top-0 left-0 w-1px h-full bg-accent/20 scale-y-0 group-hover:scale-y-100 transition-transform duration-700 origin-top" />
+                  
+                  <h3 className="text-4xl font-serif tracking-tight group-hover:translate-x-2 transition-transform duration-700">{principle.title}</h3>
+                  <p className="text-lg text-foreground/60 leading-relaxed font-mono italic">
+                    &quot;{principle.description}&quot;
+                  </p>
+                </div>
+              ))}
+            </div>
+          </ScrollSection>
         </section>
 
         {/* Final Footer Artifact */}
@@ -180,14 +202,29 @@ export default function Home() {
           
           <div className="max-w-4xl mx-auto flex flex-col items-center gap-12">
             <div className="flex flex-wrap justify-center gap-12 text-sm uppercase tracking-[0.3em] font-mono">
-              <Link href="mailto:contact@shakil.me" className="hover:text-accent transition-colors">Email</Link>
-              <Link href="https://linkedin.com/in/iamshakil" className="hover:text-accent transition-colors">LinkedIn</Link>
-              <Link href="https://github.com/iamshakil" className="hover:text-accent transition-colors">GitHub</Link>
+              <MagneticButton 
+                href="mailto:shakilofficial7@gmail.com" 
+                className="hover:text-accent transition-colors"
+              >
+                Email
+              </MagneticButton>
+              <MagneticButton 
+                href="https://linkedin.com/in/theshakilahmed" 
+                className="hover:text-accent transition-colors"
+              >
+                LinkedIn
+              </MagneticButton>
+              <MagneticButton 
+                href="https://github.com/theshakilahmed" 
+                className="hover:text-accent transition-colors"
+              >
+                GitHub
+              </MagneticButton>
             </div>
             
             <div className="space-y-4">
               <p className="metadata opacity-40 text-[10px] tracking-[0.4em] uppercase">Built for Volatility // 2026</p>
-              <p className="metadata opacity-20 text-[8px] tracking-[0.2em]">SHAKIL AHMED — ARCH_BIO_V1</p>
+              <p className="metadata opacity-20 text-[8px] tracking-[0.2em]">SHAKIL AHMED // ARCH_BIO_V1</p>
             </div>
           </div>
         </footer>
@@ -195,7 +232,3 @@ export default function Home() {
     </div>
   );
 }
-
-
-
-
