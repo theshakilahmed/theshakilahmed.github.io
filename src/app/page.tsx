@@ -77,7 +77,7 @@ export default function Home() {
               <span className="metadata mb-6 block">Senior Software Engineer</span>
               <div>
                 <HeroAnimation 
-                  className="text-7xl md:text-9xl mb-8 tracking-tighter font-serif leading-none hover:tracking-[-0.03em] transition-all duration-1000"
+                  className="text-5xl md:text-9xl mb-8 tracking-tighter font-serif leading-none hover:tracking-[-0.03em] transition-all duration-1000"
                   enableMagnetic={true}
                 >
                   Shakil Ahmed
