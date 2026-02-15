@@ -19,7 +19,7 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
       gestureOrientation: "vertical",
       smoothWheel: true,
       wheelMultiplier: 1,
-      smoothTouch: false, // Disable smooth scroll on touch devices
+
       touchMultiplier: 2,
       infinite: false,
     });
