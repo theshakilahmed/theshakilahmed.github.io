@@ -175,7 +175,7 @@ export default function Home() {
                 Email
               </MagneticButton>
               <MagneticButton 
-                href="https://linkedin.com/in/theshakilahmed" 
+                href="https://www.linkedin.com/in/iamshakilahmed/" 
                 className="hover:text-accent transition-colors"
               >
                 LinkedIn
